@@ -8,7 +8,7 @@ public class DispatchServletTest extends TestCase {
     String contactActionClassName = "com.baldurtech.Practice-the-ServletTest.ContactAction";
     
     public void test_uri_contact_show_应该由ContactAction来处理() {
-        assertEquals(contactActionClassName, dispatchServlet.getActionClassNameByUri("/contact/show"));
+        assertEquals(contactActionClassName, dispatchServlet.getActionClassNameByUri("/contact/show.jsp"));
     }
     
     public void test_uri_contact_应该有ContactAction来处理() {
@@ -16,7 +16,7 @@ public class DispatchServletTest extends TestCase {
     }
     
     public void test_uri_contact_show_应该由show方法来处理() {
-        assertEquals("show", dispatchServlet.getMethodNameByUri("/contact/show"));
+        assertEquals("show", dispatchServlet.getMethodNameByUri("/contact/show.jsp"));
     }
     
     public void test_uri_contact_的默认处理方法是index() {
