@@ -18,4 +18,8 @@ public class DispatchServletTest extends TestCase {
     public void test_uri_contact_show_应该由show方法来处理() {
         assertEquals("show", dispatchServlet.getMethodNameByUri("/contact/show"));
     }
+    
+    public void test_uri_contact_的默认处理方法是index() {
+        assertEquals("index", dispatchServlet.getMethodNameByUri("/contact"));
+    }
 }
