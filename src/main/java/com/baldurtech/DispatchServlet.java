@@ -9,7 +9,7 @@ import java.io.IOException;
 public class DispatchServlet extends HttpServlet{
 
     String defultPackageName = "com.baldurtech.Practice-the-ServletTest";
-    public String methodSuffix = ".jsp";
+    public String defaultSuffix = ".jsp";
     
     public void service(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException {
@@ -36,12 +36,16 @@ public class DispatchServlet extends HttpServlet{
         if(uriParts.length <= indexOfMethodName) {
             return "index";
         }
-        return uriParts[indexOfMethodName].replace(methodSuffix, "");
+        
+        return removeMethodSuffix(uriParts[indexOfMethodName]);
     }
     
     public String[] aplitBySlash(String uri) {
-        return uri.split("/");
-        
+        return uri.split("/"); 
+    }
+    
+    public String removeMethodSuffix(String uri) {
+        return uri.replace(defaultSuffix, "");
     }
 }
 
