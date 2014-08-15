@@ -29,6 +29,26 @@ public class DispatchServlet extends HttpServlet{
     }
     
     public String getMethodClassNameByUri(String uri) {
-        return null;
+        String[] uriParts = uri.split("/");
+        Integer indexOfMethodClassName = 2;
+        String methodClassName = uriParts[indexOfMethodClassName];
+        return getActionClassNameByUri(uri) + "." + methodClassName;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
