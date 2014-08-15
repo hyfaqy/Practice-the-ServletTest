@@ -19,9 +19,7 @@ public class DispatchServlet extends HttpServlet{
     public String getActionClassNameByUri(String uri) {
         String[] uriParts = aplitBySlash(uri);
         Integer indexOfActionClassName = 1;
-        String actionClassName = uriParts[indexOfActionClassName];
-        actionClassName = capitalize(actionClassName);
-        actionClassName = actionClassName;
+        String actionClassName = capitalize(removeMethodSuffix(uriParts[indexOfActionClassName]));
         return defultPackageName + "." + actionClassName + "Action";
     }
     
