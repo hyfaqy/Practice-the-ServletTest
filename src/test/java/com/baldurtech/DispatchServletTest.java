@@ -16,6 +16,6 @@ public class DispatchServletTest extends TestCase {
     }
     
     public void test_uri_contact_show_应该由show方法来处理() {
-        assertEquals("com.baldurtech.Practice-the-ServletTest.ContactAction.show", dispatchServlet.getMethodClassNameByUri("/contact/show"));
+        assertEquals("show", dispatchServlet.getMethodNameByUri("/contact/show"));
     }
 }

@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class DispatchServlet extends HttpServlet{
 
-    String defultPackageName = "com.baldurtech.Practice-the-ServletTest.";
+    String defultPackageName = "com.baldurtech.Practice-the-ServletTest";
     
     public void service(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException {
@@ -20,7 +20,7 @@ public class DispatchServlet extends HttpServlet{
         Integer indexOfActionClassName = 1;
         String actionClassName = uriParts[indexOfActionClassName];
         actionClassName = capitalize(actionClassName);
-        return defultPackageName + actionClassName + "Action";
+        return defultPackageName + "." + actionClassName + "Action";
     }
     
     public String capitalize(String className) {
@@ -28,11 +28,10 @@ public class DispatchServlet extends HttpServlet{
         return className;
     }
     
-    public String getMethodClassNameByUri(String uri) {
+    public String getMethodNameByUri(String uri) {
         String[] uriParts = uri.split("/");
-        Integer indexOfMethodClassName = 2;
-        String methodClassName = uriParts[indexOfMethodClassName];
-        return getActionClassNameByUri(uri) + "." + methodClassName;
+        Integer indexOfMethodName = 2;
+        return uriParts[indexOfMethodName];
     }
 }
 
