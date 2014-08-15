@@ -9,6 +9,7 @@ import java.io.IOException;
 public class DispatchServlet extends HttpServlet{
 
     String defultPackageName = "com.baldurtech.Practice-the-ServletTest";
+    public String methodSuffix = ".jsp";
     
     public void service(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException {
@@ -20,6 +21,7 @@ public class DispatchServlet extends HttpServlet{
         Integer indexOfActionClassName = 1;
         String actionClassName = uriParts[indexOfActionClassName];
         actionClassName = capitalize(actionClassName);
+        actionClassName = actionClassName;
         return defultPackageName + "." + actionClassName + "Action";
     }
     
@@ -34,7 +36,7 @@ public class DispatchServlet extends HttpServlet{
         if(uriParts.length <= indexOfMethodName) {
             return "index";
         }
-        return uriParts[indexOfMethodName];
+        return uriParts[indexOfMethodName].replace(methodSuffix, "");
     }
     
     public String[] aplitBySlash(String uri) {
