@@ -45,6 +45,10 @@ public class DispatchServlet extends HttpServlet{
     public String removeMethodSuffix(String uri) {
         return uri.replace(defaultSuffix, "");
     }
+    
+    public String getViewPage(String uri) {
+        return "/WEB-INF/jsp" + uri;
+    }
 }
 
 
