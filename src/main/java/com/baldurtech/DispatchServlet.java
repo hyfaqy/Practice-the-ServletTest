@@ -7,11 +7,14 @@ import javax.servlet.ServletException;
 import java.io.IOException;
 
 public class DispatchServlet extends HttpServlet{
+
+    String defultPackageName = "com.baldurtech.Practice-the-ServletTest.";
+    
     public void service(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException {
         
     }
-    String defultPackageName = "com.baldurtech.Practice-the-ServletTest.";
+    
     public String getActionClassNameByUri(String uri) {
         String[] uriParts = uri.split("/");
         Integer indexOfActionClassName = 1;
@@ -23,5 +26,9 @@ public class DispatchServlet extends HttpServlet{
     public String capitalize(String className) {
         className = className.substring(0, 1).toUpperCase() + className.substring(1);
         return className;
+    }
+    
+    public String getMethodClassNameByUri(String uri) {
+        return null;
     }
 }
