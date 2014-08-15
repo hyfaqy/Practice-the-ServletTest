@@ -11,13 +11,17 @@ public class DispatchServlet extends HttpServlet{
     throws IOException, ServletException {
         
     }
-    
+    String defultPackageName = "com.baldurtech.Practice-the-ServletTest.";
     public String getActionClassNameByUri(String uri) {
         String[] uriParts = uri.split("/");
         Integer indexOfActionClassName = 1;
         String actionClassName = uriParts[indexOfActionClassName];
-        actionClassName = actionClassName.substring(0, 1).toUpperCase() + actionClassName.substring(1);
-        return "com.baldurtech.Practice-the-ServletTest." + actionClassName + "Action";
+        actionClassName = capitalize(actionClassName);
+        return defultPackageName + actionClassName + "Action";
     }
     
+    public String capitalize(String className) {
+        className = className.substring(0, 1).toUpperCase() + className.substring(1);
+        return className;
+    }
 }

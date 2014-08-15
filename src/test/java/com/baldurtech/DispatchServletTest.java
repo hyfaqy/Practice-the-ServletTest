@@ -4,8 +4,14 @@ import com.baldurtech.util.TestCase;
 
 public class DispatchServletTest extends TestCase {
 
+    DispatchServlet dispatchServlet = new DispatchServlet();
+    String contactActionClassName = "com.baldurtech.Practice-the-ServletTest.ContactAction";
+    
     public void test_uri_contact_show_应该由ContactAction来处理() {
-        DispatchServlet dispatchServlet = new DispatchServlet();
-        assertEquals("com.baldurtech.Practice-the-ServletTest.ContactAction", dispatchServlet.getActionClassNameByUri("/contact/show"));
+        assertEquals(contactActionClassName, dispatchServlet.getActionClassNameByUri("/contact/show"));
+    }
+    
+    public void test_uri_contact_应该有ContactAction来处理() {
+        assertEquals(contactActionClassName, dispatchServlet.getActionClassNameByUri("/contact"));
     }
 }
