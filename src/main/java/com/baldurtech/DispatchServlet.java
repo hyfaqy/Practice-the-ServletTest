@@ -13,7 +13,11 @@ public class DispatchServlet extends HttpServlet{
     }
     
     public String getActionClassNameByUri(String uri) {
-        return "1";
+        String[] uriParts = uri.split("/");
+        Integer indexOfActionClassName = 1;
+        String actionClassName = uriParts[indexOfActionClassName];
+        actionClassName = actionClassName.substring(0, 1).toUpperCase() + actionClassName.substring(1);
+        return "com.baldurtech.Practice-the-ServletTest." + actionClassName + "Action";
     }
     
 }
