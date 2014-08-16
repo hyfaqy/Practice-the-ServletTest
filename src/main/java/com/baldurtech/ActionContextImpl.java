@@ -1,4 +1,4 @@
-package com.baldurtech.turnt.octo.adventure;
+package com.baldurtech;
  
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
